@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Capture Policy Dry-Run palette: deep slate, cool paper text, muted slate for evidence, one cyan accent. */
+  --ink: 12 17 26;
+  --surface: 21 28 40;
+  --paper: 226 232 240;
+  --muted: 140 152 170;
+  --accent: 56 214 196;
+  --signal: 251 113 133; /* leaks only */
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: rgb(var(--ink));
+  color: rgb(var(--paper));
+}
+
+body {
+  font-family: var(--font-serif), Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgb(var(--accent) / 0.35);
+}
+
+.hairline {
+  border-color: rgb(var(--paper) / 0.12);
+}
+
+.grain {
+  background-image: radial-gradient(rgb(var(--paper) / 0.05) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

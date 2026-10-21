@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`toMarkdownReport > renders a stable privacy review 1`] = `
+"# Privacy review
+
+Capture policy dry-run for **Test policy**, generated 2026-10-21T00:00:00Z.
+Evaluated against 4 sample capture events. No device recorded anything.
+
+## Summary
+
+| Metric | Value |
+|---|---|
+| Events captured | 1 |
+| Events captured with redactions | 1 |
+| Events dropped | 2 |
+| Sensitive events in sample | 2 |
+| Leaks | 1 |
+| Privacy score | 50% |
+
+## Leaks
+
+| Time | App | Window / URL | Sensitivity | Decision | Why it matters |
+|---|---|---|---|---|---|
+| 09:05 | WhatsApp | #finance - Northstar | personal | captured | Personal chat |
+
+## Drop rules and hit counts
+
+| Rule | Events dropped |
+|---|---|
+| \`ignoredWindows[0]: 1Password\` | 2 |
+
+## Policy
+
+\`\`\`json
+{
+  "ignoredWindows": [
+    "1Password"
+  ],
+  "includedWindows": [],
+  "ignoredUrls": [],
+  "includedUrls": [],
+  "ignoreIncognitoWindows": false,
+  "schedule": [],
+  "ignoredMeetingApps": [],
+  "redact": {
+    "categories": [
+      "email"
+    ]
+  }
+}
+\`\`\`
+"
+`;
